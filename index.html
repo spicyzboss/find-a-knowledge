@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <meta name="description" content="ลองเข้าไปหาความรู้ดูสิ">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: url(img/bg.gif) no-repeat center center fixed;
+            background-size: cover;
+        }
+        #btn {
+            font-family: 'VT323', monospace;
+            width: 20vw;
+            height: 5vw;
+            user-select: none;
+            font-size: 2.5vw;
+            border-radius: 1vw;
+            border: solid 0.3vw black;
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 600px) {
+            #btn {
+                width: 20vh;
+                height: 5vh;
+                font-size: 2.5vh;
+                border-radius: 1vh;
+                border: solid 0.3vh black;
+            }
+        }
+        #btn:hover {
+            filter: brightness(95%);
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="window.location.href = `https://google.com`">Reveal Knowledge</button>
+</body>
+<script>
+    button = document.querySelector("#btn")
+    var inter
+    button.addEventListener('mouseover', () => {
+        inter = setInterval(() => {
+            rainbowdash(button)
+        }, 10)
+    })
+    button.addEventListener('mouseleave', () => {
+        clearInterval(inter);
+        button.style.borderColor = "black"
+        button.style.color = "black"
+    })
+    rainbowdash = (elem) => {
+        elem.style.borderColor = `hsl(${Math.random()*360}, 100%, 50%)`
+        elem.style.color = `hsl(${Math.random()*360}, 100%, 50%)`
+    }
+</script>
+</html>
